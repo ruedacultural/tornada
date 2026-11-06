@@ -204,7 +204,7 @@
     var e = C.estudiante;
     var cerrado = now > D(e.fin) || now < D(e.inicio);
     html += tarjeta('estudiante' + (cerrado ? ' cerrado' : ''), e.nombre, e.precio,
-      cerrado ? 'Solo venta online' : 'Con carné',
+      cerrado ? 'Solo venta online' : 'Con carnet',
       'Toda la venta online (hasta el ' + diaMes(D(e.fin)) + ')', e.condicion);
 
     cont.innerHTML = html;
@@ -262,7 +262,7 @@
     var abierta = $('#venta-abierta'), cerrada = $('#venta-cerrada');
     var mensajes = {
       antes: 'La venta online empieza el <b>' + diaLargo(D(C.tramos[0].inicio)) + ' de ' + mesDe(D(C.tramos[0].inicio)) + '</b>. Vuelve pronto.',
-      puerta: '<b>La venta online cerró.</b> Hoy puedes comprar tu entrada en la puerta del Jazz Zone a ' + soles(ev.tramo ? ev.tramo.precio : '') + ', sujeto a disponibilidad. Puertas 7:30 p. m.',
+      puerta: '<b>La venta online cerró.</b> Hoy puedes comprar tu entrada en la puerta del Jazz Zone a ' + soles(ev.tramo ? ev.tramo.precio : '') + ', sujeto a disponibilidad. Puertas 8:00 p. m.',
       agotado: '<b>Entradas agotadas.</b> Escríbenos por WhatsApp para entrar a la lista de espera.',
       terminado: '<b>Gracias por ser parte de Tornada.</b> Síguenos en Instagram para enterarte de lo que viene.'
     };
@@ -361,8 +361,18 @@
   /* ---------- Música: Spotify + fachada de YouTube ---------- */
   function musica() {
     var M = C.musica;
-    var sp = $('[data-src-spotify]');
-    if (sp && M.spotifyTrackId) sp.src = 'https://open.spotify.com/embed/track/' + M.spotifyTrackId + '?utm_source=generator';
+    var spBtn = $('#spotify-btn'), spCaja = $('#spotify');
+    if (spBtn && M.spotifyTrackId) {
+      spBtn.addEventListener('click', function () {
+        var f = document.createElement('iframe');
+        f.src = 'https://open.spotify.com/embed/track/' + M.spotifyTrackId;
+        f.title = 'Curita en Spotify';
+        f.height = 152;
+        f.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+        spCaja.innerHTML = '';
+        spCaja.appendChild(f);
+      }, { once: true });
+    }
     var a;
     if ((a = $('[data-href-spotify]'))) a.href = 'https://open.spotify.com/track/' + M.spotifyTrackId;
     if ((a = $('[data-href-youtube]'))) a.href = 'https://www.youtube.com/watch?v=' + M.youtubeId;
@@ -389,7 +399,7 @@
     var E = C.evento;
     var utc = function (iso) { return D(iso).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''); };
     var titulo = 'Tornada — Katia Uriol';
-    var detalle = 'Concierto de lanzamiento de “' + E.sencillo + '”.\nPuertas 7:30 p. m. · Show 8:30 p. m.\nIngreso libre: llega temprano para elegir mesa.\nUna producción de Rueda Cultural.';
+    var detalle = 'Concierto de lanzamiento de “' + E.sencillo + '”.\nPuertas 8:00 p. m. · Show 8:30 p. m.\nSin asiento numerado: ingreso por orden de llegada.\nUna producción de Rueda Cultural.';
     var lugar = E.lugar + ', ' + E.direccion;
 
     var g = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +

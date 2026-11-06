@@ -136,8 +136,13 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
   /* tira de papel/cinta como en el flyer */
   clip-path: polygon(1% 8%, 99% 0, 100% 90%, 0 100%);
 }
-.hero__bajada{ font-size: 1rem; color: #EDE6F7; max-width: 32ch; margin: 6px auto 0; }
-.hero__bajada em{ font-style: normal; font-weight: 700; color: #fff; }
+.hero__bajada{
+  display: inline-block; margin: 10px auto 0; padding: 8px 22px 6px;
+  font-family: var(--f-serif); font-weight: 800; font-size: clamp(1.3rem, 6vw, 1.7rem);
+  text-transform: uppercase; letter-spacing: .02em; line-height: 1.1;
+  background: #fff; color: var(--tinta); border-radius: 14px;
+  box-shadow: 0 8px 24px -10px rgba(0,0,0,.45);
+}
 
 .hero__foto{ display: block; position: relative; margin: -6px auto 0; max-width: 560px; }
 .hero__foto img{
@@ -323,7 +328,16 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 
 /* ---------- 5. Curita ---------- */
 .musica{ display: grid; gap: 16px; max-width: 720px; }
-.spotify{ width: 100%; border: 0; border-radius: 12px; background: var(--crema); }
+.spotify{ width: 100%; min-height: 152px; border-radius: 12px; overflow: hidden; background: var(--noche); }
+.spotify iframe{ display: block; width: 100%; height: 152px; border: 0; }
+.spotify__btn{
+  width: 100%; min-height: 152px; display: flex; align-items: center; gap: 18px; padding: 20px 22px;
+  border: 0; cursor: pointer; text-align: left; color: #fff; font-family: var(--f-texto); font-size: 1.05rem;
+  background: linear-gradient(120deg, var(--noche) 0%, var(--morado) 70%, #7A5A8E 100%);
+}
+.spotify__btn small{ color: var(--lila); font-size: .88rem; }
+.spotify__play{ position: relative; flex-shrink: 0; width: 60px; height: 60px; border-radius: 50%; background: #1DB954; }
+.spotify__play::after{ content: ""; position: absolute; left: 24px; top: 18px; border-left: 18px solid #0b0b0b; border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
 .yt{
   position: relative; display: block; width: 100%; aspect-ratio: 16/9; padding: 0; border: 0; cursor: pointer;
   border-radius: 12px; overflow: hidden; background: var(--noche);
@@ -361,13 +375,15 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 .artista:nth-child(2) .artista__inicial{ background: #F6D2B8; color: var(--naranja-osc); }
 .artista:nth-child(3) .artista__inicial{ background: #D5E0EF; color: #4C6690; }
 .artista--abre .artista__inicial{ background: var(--morado); color: #fff; }
+.artista__foto--logo{ background: #000; }
+.enlaces-artista{ display: flex; flex-wrap: wrap; gap: 6px 16px; }
 .enlace-ig{ display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9rem; color: var(--morado); text-decoration: none; }
 .enlace-ig:hover{ text-decoration: underline; }
 .enlace-ig svg{ width: 16px; height: 16px; fill: currentColor; }
 
 /* ---------- 7. Información práctica ---------- */
 .info{ display: grid; gap: 14px; }
-@media (min-width: 860px){ .info{ grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 760px){ .info{ grid-template-columns: 1fr 1fr; } }
 .info__bloque{ background: #fff; border: 1.5px solid var(--linea); border-radius: var(--radio); padding: 22px; }
 .info__bloque h3{ margin-bottom: 10px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .03em; }
 .info__bloque--destacado{ background: #FFF0E4; border-color: #F2C8A8; }

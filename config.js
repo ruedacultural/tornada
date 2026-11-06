@@ -17,7 +17,7 @@ window.TORNADA = {
     lugar: "Jazz Zone",
     direccion: "Av. La Paz 656, Pasaje El Suche, Miraflores, Lima",
     mapsUrl: "https://maps.app.goo.gl/aXGLLwpGmD28fWHK7",
-    puertas: "2026-12-02T19:30:00-05:00",
+    puertas: "2026-12-02T20:00:00-05:00",
     show:    "2026-12-02T20:30:00-05:00",
     fin:     "2026-12-02T22:00:00-05:00",
     aforo: 120
@@ -31,7 +31,7 @@ window.TORNADA = {
     {
       id: "earlybird",
       nombre: "Early bird",
-      precio: 30,
+      precio: 25,
       inicio: "2026-11-06T00:00:00-05:00",
       fin:    "2026-11-12T23:59:59-05:00",
       online: true,
@@ -63,7 +63,7 @@ window.TORNADA = {
     precio: 25,
     inicio: "2026-11-06T00:00:00-05:00",
     fin:    "2026-12-01T23:59:59-05:00",
-    condicion: "Muestra tu carné vigente al ingresar. Si no lo tienes, pagas S/ 10 de diferencia.",
+    condicion: "Muestra tu carnet vigente al ingresar.",
     opcionAirtable: "Estudiante"
   },
 
@@ -80,7 +80,7 @@ window.TORNADA = {
 
   /* ---------- WhatsApp (alternativa al formulario) ---------- */
   whatsapp: {
-    numero: "[51983545543]",  // con código de país, sin + ni espacios: "51999888777"
+    numero: "[NÚMERO WHATSAPP]",  // con código de país, sin + ni espacios: "51999888777"
     mensaje: "Hola, quiero comprar entradas para Tornada",
     agregarReferencia: true       // agrega "(de parte de …)" si el enlace trae ?v=
   },
@@ -90,14 +90,14 @@ window.TORNADA = {
      Debe verse así: https://airtable.com/embed/appXXXXXXXXXXXXXX/pagXXXXXXXXXXXXXX/form
      Los nombres de campo deben coincidir EXACTAMENTE con los del formulario. */
   airtable: {
-    embedUrl: "https://airtable.com/appsRxiggvGuilmcb/paghSEUNdhWa85BTe/form",
+    embedUrl: "https://airtable.com/embed/appsRxiggvGuilmcb/paghSEUNdhWa85BTe/form",
     campos: {
       vendidoPor: "Vendido por",
       origen: "Origen",
       tipoEntrada: "Tipo de entrada"
     },
     ocultarCampos: true,              // oculta "Vendido por" y "Origen" al comprador
-    precargarTipoEntrada: true,       // marca el tramo vigente por defecto
+    precargarTipoEntrada: false,      // el formulario actual no tiene campo "Tipo de entrada"
     alturaIframe: 1350
   },
 
@@ -123,7 +123,7 @@ window.TORNADA = {
   /* ---------- Píxel de Meta (opcional) ----------
      Vacío = no se carga. Ej.: "1140337005351844" */
   metaPixelId: "",
-  valorCompraReferencial: 33,         // S/ promedio para el evento Purchase
+  valorCompraReferencial: 30,         // S/ promedio para el evento Purchase
 
   /* ---------- Música ---------- */
   musica: {

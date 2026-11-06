@@ -29,7 +29,7 @@ tornada/
 
 | Marcador | Dónde | Qué poner |
 |---|---|---|
-| `[AIRTABLE_EMBED_URL]` | config.js | El `src` del embed del formulario (`https://airtable.com/embed/app…/pag…/form`) |
+| Campos `Vendido por` y `Origen` | Formulario de Airtable | Agrégalos como texto (pueden ir ocultos); sin ellos no se registra el seguimiento |
 | `[NÚMERO WHATSAPP]` | config.js | Con código de país y sin espacios, p. ej. `51999888777` |
 | `[QR]` | config.js → `pago.qrImagen` | `img/qr-yape.webp`, si tienes el QR |
 | `[INSTAGRAM GABRIEL VARGAS]` y `[@USUARIO]` | index.html | Su Instagram (o borra el enlace) |
