@@ -80,7 +80,7 @@ window.TORNADA = {
 
   /* ---------- WhatsApp (alternativa al formulario) ---------- */
   whatsapp: {
-    numero: "[NÚMERO WHATSAPP]",  // con código de país, sin + ni espacios: "51999888777"
+    numero: "[51983545543]",  // con código de país, sin + ni espacios: "51999888777"
     mensaje: "Hola, quiero comprar entradas para Tornada",
     agregarReferencia: true       // agrega "(de parte de …)" si el enlace trae ?v=
   },
@@ -90,7 +90,7 @@ window.TORNADA = {
      Debe verse así: https://airtable.com/embed/appXXXXXXXXXXXXXX/pagXXXXXXXXXXXXXX/form
      Los nombres de campo deben coincidir EXACTAMENTE con los del formulario. */
   airtable: {
-    embedUrl: "[AIRTABLE_EMBED_URL]",
+    embedUrl: "https://airtable.com/appsRxiggvGuilmcb/paghSEUNdhWa85BTe/form",
     campos: {
       vendidoPor: "Vendido por",
       origen: "Origen",
