@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Tu entrada — Tornada · Katia Uriol</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700;800&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  :root{ --noche:#2A2140; --morado:#55416F; --lila:#C6B6DF; --naranja:#D97942; --papel:#FBF7F1; --tinta:#241B30; --vino:#661315; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--papel); color:var(--tinta); font-family:'Manrope',sans-serif; padding:26px 16px 60px; }
+  .intro{ max-width:380px; margin:0 auto 20px; text-align:center; }
+  .intro h1{ font-family:'League Spartan',sans-serif; font-weight:800; font-size:1.4rem; margin:0 0 4px; text-transform:uppercase; }
+  .intro p{ color:var(--morado); font-size:.92rem; margin:0; }
+  .stage{ display:flex; justify-content:center; }
+  .ticket{ width:380px; max-width:100%; border-radius:16px; overflow:hidden; box-shadow:0 14px 36px rgba(42,33,64,.28); }
+  .main{
+    position:relative; overflow:hidden; color:#fff; padding:22px 22px 26px; text-align:center;
+    background: radial-gradient(120% 70% at 50% 100%, rgba(217,121,66,.35), transparent 60%),
+                linear-gradient(180deg, var(--noche) 0%, #3E3373 55%, var(--morado) 100%);
+  }
+  .sello{ width:150px; display:block; margin:0 0 14px; }
+  .logo{ width:88%; display:block; margin:0 auto; }
+  .foto{ width:100%; display:block; margin:-4px auto 0;
+    -webkit-mask-image:radial-gradient(closest-side,#000 60%,transparent 100%); mask-image:radial-gradient(closest-side,#000 60%,transparent 100%); }
+  .papel{ width:56%; display:block; margin:-46px auto 14px; position:relative; transform:rotate(-2deg); }
+  .el{ position:absolute; width:46px; filter:drop-shadow(0 3px 5px rgba(0,0,0,.35)); }
+  .el.a{ top:250px; right:8px; transform:rotate(12deg); } .el.b{ top:380px; left:8px; width:40px; }
+  .campos{ text-align:left; display:grid; gap:10px; position:relative; }
+  .k{ font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--lila); }
+  .v{ font-weight:700; font-size:1rem; line-height:1.3; }
+  .dos{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .talon{ background:var(--papel); padding:22px 22px 20px; position:relative; }
+  .perf{ position:absolute; top:0; left:0; right:0; border-top:2px dashed rgba(42,33,64,.25); }
+  .perf::before,.perf::after{ content:""; position:absolute; top:-11px; width:22px; height:22px; border-radius:50%; background:var(--papel); }
+  .perf::before{ left:-12px; } .perf::after{ right:-12px; }
+  .fila{ display:flex; align-items:center; gap:18px; }
+  #qr{ background:#fff; padding:7px; border-radius:6px; line-height:0; border:1px solid #e6dccf; }
+  .folio{ font-family:'League Spartan',sans-serif; font-weight:800; font-size:1.35rem; color:var(--morado); }
+  .admite{ font-size:.85rem; color:#5A4F66; } .admite b{ color:var(--tinta); font-size:1rem; }
+  .instr{ margin-top:14px; padding-top:12px; border-top:1px solid #e3d8cb; font-size:.78rem; color:#5A4F66; line-height:1.45; }
+  .instr b{ color:var(--tinta); }
+  .acciones{ max-width:380px; margin:24px auto 0; display:grid; gap:10px; }
+  .btn{ display:block; width:100%; text-align:center; text-decoration:none; border:0; cursor:pointer; font:700 .98rem 'Manrope',sans-serif; padding:14px; border-radius:999px; background:var(--naranja); color:var(--tinta); box-shadow:0 3px 0 #B95F2C; }
+  .btn.sec{ background:#fff; color:var(--morado); border:2px solid var(--morado); box-shadow:none; }
+  .nota{ max-width:380px; margin:16px auto 0; font-size:.8rem; color:#7a6f86; text-align:center; line-height:1.5; }
+  .error{ max-width:380px; margin:40px auto; text-align:center; color:var(--morado); line-height:1.6; }
+</style>
+</head>
+<body>
+<div id="contenido" hidden>
+  <div class="intro">
+    <h1>Tu entrada</h1>
+    <p>Guárdala en tu celular y muéstrala en la puerta.</p>
+  </div>
+  <div class="stage">
+    <div class="ticket" id="ticket">
+      <div class="main">
+        <img class="el a" src="img/elementos/rayo.webp" alt="" crossorigin="anonymous">
+        <img class="el b" src="img/elementos/curita.webp" alt="" crossorigin="anonymous">
+        <img class="sello" src="img/lockup-rueda.webp" alt="Rueda Cultural · Producción de artes escénicas" crossorigin="anonymous">
+        <img class="logo" src="img/titulo-tornada.webp" alt="Katia Uriol — Tornada" crossorigin="anonymous">
+        <img class="foto" src="img/hero-katia-720.webp" alt="" crossorigin="anonymous">
+        <img class="papel" src="img/papel-el-concierto.webp" alt="El concierto" crossorigin="anonymous">
+        <div class="campos">
+          <div><div class="k">A nombre de</div><div class="v" id="t-nombre"></div></div>
+          <div class="dos">
+            <div><div class="k">Fecha</div><div class="v">Mié 2 de diciembre</div></div>
+            <div><div class="k">Hora</div><div class="v">Puertas 8:00 p. m.<br>Show 8:30 p. m.</div></div>
+          </div>
+          <div><div class="k">Lugar</div><div class="v">Jazz Zone · Av. La Paz 656, Pasaje El Suche, Miraflores</div></div>
+        </div>
+      </div>
+      <div class="talon">
+        <div class="perf"></div>
+        <div class="fila">
+          <div id="qr"></div>
+          <div>
+            <div class="folio" id="t-folio"></div>
+            <div class="admite">Admite a <b id="t-cantidad"></b></div>
+          </div>
+        </div>
+        <div class="instr"><b>Muestra este código QR en la puerta.</b> Sin asiento numerado: ingreso por orden de llegada. Entrada personal; no la compartas en redes.</div>
+      </div>
+    </div>
+  </div>
+  <div class="acciones">
+    <button class="btn" onclick="descargarPNG()">Descargar como imagen</button>
+    <button class="btn sec" onclick="descargarPDF()">Descargar PDF</button>
+  </div>
+  <p class="nota">¿Algún problema? Escríbenos a ruedacultural.producciones@gmail.com</p>
+</div>
+
+<div class="error" id="error" hidden>
+  <p>No encontramos los datos de esta entrada.<br>Abre el enlace completo que te llegó por correo o escríbenos a <b>ruedacultural.producciones@gmail.com</b>.</p>
+</div>
+
+<script>
+  var p = new URLSearchParams(location.search);
+  var folio = (p.get('f') || '').trim();
+  var nombre = (p.get('n') || '').trim();
+  var cantidad = parseInt(p.get('c'), 10) || 1;
+  if (!folio) {
+    document.getElementById('error').hidden = false;
+  } else {
+    document.getElementById('contenido').hidden = false;
+    document.getElementById('t-folio').textContent = folio;
+    document.getElementById('t-nombre').textContent = nombre || 'Invitado/a';
+    document.getElementById('t-cantidad').textContent = cantidad + (cantidad === 1 ? ' persona' : ' personas');
+    document.title = folio + ' — Tornada';
+    try { new QRCode(document.getElementById('qr'), { text: folio, width: 100, height: 100, colorDark: '#241B30', colorLight: '#ffffff' }); } catch (e) {}
+  }
+  function archivo(ext){
+    var ap = (nombre.split(' ').filter(Boolean).pop() || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-zA-Z0-9]/g, '');
+    return (ap ? folio + '-' + ap : folio) + '.' + ext;
+  }
+  function captura(bg){ return html2canvas(document.getElementById('ticket'), { backgroundColor: bg, scale: 2, useCORS: true }); }
+  function descargarPNG(){ captura(null).then(function(c){ var a = document.createElement('a'); a.download = archivo('png'); a.href = c.toDataURL('image/png'); a.click(); }); }
+  function descargarPDF(){
+    captura('#ffffff').then(function(c){
+      var w = 100, h = w * c.height / c.width;
+      var pdf = new window.jspdf.jsPDF({ orientation: 'portrait', unit: 'mm', format: [w + 20, h + 20] });
+      pdf.addImage(c.toDataURL('image/png'), 'PNG', 10, 10, w, h);
+      pdf.save(archivo('pdf'));
+    });
+  }
+</script>
+</body>
+</html>
