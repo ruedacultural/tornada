@@ -119,6 +119,15 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 @keyframes titilar{ 0%,100%{ opacity:.25; transform: scale(.8);} 50%{ opacity:.9; transform: scale(1.1);} }
 
 .hero__texto{ position: relative; z-index: 2; padding: 0 20px; }
+.hero__sello{ display: block; width: min(200px, 48vw); height: auto; margin: 0 0 18px 18px; position: relative; z-index: 2; }
+@media (min-width: 900px){ .hero__sello{ position: absolute; top: 22px; left: 28px; margin: 0; width: 220px; } .hero{ padding-top: 60px; } }
+.hero__logo{ width: min(92%, 560px); height: auto; margin: 0 auto; filter: drop-shadow(0 6px 22px rgba(42,33,64,.45)); }
+.hero__escena{ position: relative; max-width: 640px; margin: -18px auto 0; }
+.hero__papel{
+  position: relative; z-index: 3; display: block; width: min(64%, 330px); height: auto;
+  margin: -78px auto 0; transform: rotate(-2deg);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+}
 .hero__artista{
   font-family: var(--f-titulo); font-weight: 600; text-transform: uppercase;
   letter-spacing: .5em; font-size: .95rem; margin: 0 0 2px; padding-left: .5em;
@@ -144,14 +153,14 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
   box-shadow: 0 8px 24px -10px rgba(0,0,0,.45);
 }
 
-.hero__foto{ display: block; position: relative; margin: -6px auto 0; max-width: 560px; }
+.hero__foto{ display: block; position: relative; margin: 0 auto; }
 .hero__foto img{
   width: 100%; height: auto;
-  -webkit-mask-image: radial-gradient(ellipse 72% 64% at 50% 46%, #000 58%, transparent 100%);
-          mask-image: radial-gradient(ellipse 72% 64% at 50% 46%, #000 58%, transparent 100%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 60%, transparent 100%);
+          mask-image: radial-gradient(closest-side, #000 60%, transparent 100%);
 }
 
-.hero__ficha{ position: relative; z-index: 2; margin: -70px auto 0; padding: 0 20px 38px; max-width: 620px; }
+.hero__ficha{ position: relative; z-index: 2; margin: 18px auto 0; padding: 0 20px 38px; max-width: 620px; }
 .ficha{
   margin: 0 0 18px; display: grid; gap: 2px;
   background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22);
@@ -294,14 +303,15 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
    los elementos quedan quietos sobre su anillo */
 @property --t{ syntax: '<angle>'; inherits: false; initial-value: 0deg; }
 .remolino .el{
-  position: absolute; left: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; fill: #fff;
+  position: absolute; left: 50%; width: 62px; height: 62px; margin: -31px 0 0 -31px; object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.35));
   transform: translate(calc(cos(var(--t)) * var(--rx)), calc(sin(var(--t)) * var(--ry))) scale(calc(.78 + .22 * sin(var(--t))));
-  opacity: calc(.6 + .4 * sin(var(--t)));
+  opacity: calc(.75 + .25 * sin(var(--t)));
   animation: orbita var(--dur) linear infinite; animation-delay: var(--d, 0s);
 }
 .el.o1{ top: 18%; --rx: min(138px, 36.8vw); --ry: min(36px, 9.6vw); --dur: 14s; }
-.el.o2{ top: 50%; --rx: min(96px, 25.6vw); --ry: min(25px, 6.8vw); --dur: 10s; width: 28px; height: 28px; margin: -14px 0 0 -14px; }
-.el.o3{ top: 78%; --rx: min(54px, 14.4vw); --ry: min(15px, 4vw); --dur: 7s; width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.el.o2{ top: 50%; --rx: min(96px, 25.6vw); --ry: min(25px, 6.8vw); --dur: 10s; width: 52px; height: 52px; margin: -26px 0 0 -26px; }
+.el.o3{ top: 78%; --rx: min(54px, 14.4vw); --ry: min(15px, 4vw); --dur: 7s; width: 40px; height: 40px; margin: -20px 0 0 -20px; }
 .el--naranja{ fill: var(--naranja) !important; }
 .el--lila{ fill: var(--lila) !important; }
 .el--azul{ fill: var(--azul) !important; }
@@ -323,8 +333,7 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 .carta:nth-child(2){ transform: rotate(.8deg); }
 .carta h3{ font-family: var(--f-serif); font-weight: 800; font-size: 1.45rem; margin-bottom: 10px; color: var(--morado); }
 .carta p{ margin: 0; font-size: .98rem; }
-.carta__icono{ position: absolute; top: -16px; right: 18px; width: 46px; height: 36px; }
-.carta__icono--flor{ width: 40px; height: 40px; top: -18px; }
+.carta__icono{ position: absolute; top: -26px; right: 14px; width: 62px; height: auto; transform: rotate(8deg); filter: drop-shadow(0 4px 6px rgba(0,0,0,.3)); }
 
 /* ---------- 5. Curita ---------- */
 .musica{ display: grid; gap: 16px; max-width: 720px; }
@@ -377,6 +386,16 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 .artista--abre .artista__inicial{ background: var(--morado); color: #fff; }
 .artista__foto--logo{ background: #000; }
 .enlaces-artista{ display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.sorpresa{
+  display: flex; align-items: center; gap: 18px; padding: 22px 20px;
+  border-radius: var(--radio); color: #fff;
+  background: linear-gradient(120deg, var(--noche) 0%, var(--morado) 75%, #7A5A8E 100%);
+  box-shadow: var(--sombra);
+}
+.sorpresa__el{ width: 70px; height: auto; flex-shrink: 0; transform: rotate(-12deg); filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+.sorpresa__titulo{ font-family: var(--f-serif); font-weight: 800; font-size: 1.45rem; line-height: 1.15; margin-bottom: 6px; }
+.sorpresa p{ margin: 0; color: #EDE6F7; }
+.sorpresa a{ color: #F6D2B8; font-weight: 700; }
 .enlace-ig{ display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9rem; color: var(--morado); text-decoration: none; }
 .enlace-ig:hover{ text-decoration: underline; }
 .enlace-ig svg{ width: 16px; height: 16px; fill: currentColor; }
@@ -431,6 +450,7 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
   display: grid; place-items: center; background: var(--naranja); color: var(--tinta);
 }
 .gracias__check svg{ width: 32px; height: 32px; }
+.gracias__logo{ width: min(70%, 340px); margin-bottom: 14px; }
 .gracias h1{ font-family: var(--f-serif); font-weight: 800; font-size: clamp(2.2rem, 9vw, 3.4rem); margin-bottom: 12px; }
 .gracias__msg{ font-size: 1.12rem; max-width: 34ch; margin: 0 auto 26px; color: #EDE6F7; }
 .recordatorio{ max-width: 500px; margin: 0 auto; padding: 0 20px; text-align: left; }

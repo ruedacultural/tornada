@@ -34,8 +34,15 @@ tornada/
 | `[QR]` | config.js → `pago.qrImagen` | `img/qr-yape.webp`, si tienes el QR |
 | `[INSTAGRAM GABRIEL VARGAS]` y `[@USUARIO]` | index.html | Su Instagram (o borra el enlace) |
 | `[NOMBRE DE LA PINTORA]` | index.html (comentario) | Cuando se confirme |
-| `[FLYER FINAL]` | img/ | Reemplaza `hero-katia-*.webp`, `flyer.webp` y `og.jpg` con el flyer final (mismos nombres) |
 | `metaPixelId` | config.js | Opcional: ID del píxel de Meta si harás pauta |
+
+## Piezas del flyer final
+
+Recortadas del flyer final (img/): `titulo-tornada.webp` (Katia Uriol + Tornada), `lockup-rueda.webp`, `hero-katia-*.webp`, `papel-el-concierto.webp`, `katia.webp` y los elementos sueltos en `img/elementos/`. `og.jpg` y `flyer.webp` son el flyer completo (solo para la vista previa al compartir).
+
+## Invitados especiales
+
+Están ocultos tras el aviso "Habrá invitados especiales · Muy pronto". Las bios de Klúa, José Miguel Argüelles y Gabriel Vargas están en un comentario dentro de `index.html` (sección Artistas): para revelarlas, borra el bloque `sorpresa` y quita las marcas del comentario.
 
 ## Airtable: lo que debe coincidir
 

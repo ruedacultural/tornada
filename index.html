@@ -60,22 +60,25 @@
     <svg class="brillo b4"><use href="#i-brillo"/></svg>
   </div>
 
+  <img class="hero__sello" src="img/lockup-rueda.webp" width="520" height="203"
+       alt="Rueda Cultural · Producción de artes escénicas">
+
   <div class="hero__texto">
-    <p class="hero__artista">Katia Uriol</p>
-    <p class="hero__titulo">Tornada</p>
-    <p class="hero__lema">El tiempo no existe</p>
-    <p class="hero__bajada">El concierto</p>
+    <img class="hero__logo" src="img/titulo-tornada.webp" width="1200" height="449"
+         alt="Katia Uriol — Tornada">
   </div>
 
-  <!-- [FLYER FINAL] Cuando Salett entregue el flyer final, reemplaza img/hero-katia-*.webp
-       (recorte cuadrado de Katia dentro del tornado), img/flyer.webp e img/og.jpg -->
-  <picture class="hero__foto">
-    <img src="img/hero-katia-720.webp"
-         srcset="img/hero-katia-720.webp 720w, img/hero-katia-1200.webp 1200w"
-         sizes="(max-width: 760px) 100vw, 560px"
-         width="720" height="706"
-         alt="Katia Uriol con los ojos cerrados, el cabello al viento, dentro de un tornado de luz con flores, curitas y notas musicales">
-  </picture>
+  <!-- Piezas recortadas del flyer final (img/hero-katia-*, img/papel-el-concierto) -->
+  <div class="hero__escena">
+    <picture class="hero__foto">
+      <img src="img/hero-katia-720.webp"
+           srcset="img/hero-katia-720.webp 720w, img/hero-katia-1200.webp 1200w"
+           sizes="(max-width: 760px) 100vw, 640px"
+           width="720" height="535"
+           alt="Katia Uriol con los ojos cerrados, el cabello al viento, dentro de un tornado de luz con flores, notas, curitas y rayos">
+    </picture>
+    <img class="hero__papel" src="img/papel-el-concierto.webp" width="640" height="339" alt="El concierto">
+  </div>
 
   <div class="hero__ficha">
     <dl class="ficha">
@@ -93,11 +96,6 @@
     <p class="micro">Sin asiento numerado · Sin consumo mínimo</p>
   </div>
 </header>
-
-<div class="firma-linea">
-  <span class="firma-linea__barra" aria-hidden="true"></span>
-  <span>Una producción de <b>Rueda Cultural</b> · Producción de artes escénicas</span>
-</div>
 
 <main>
 
@@ -180,26 +178,26 @@
         <span class="remolino__anillo r2"></span>
         <span class="remolino__anillo r3"></span>
         <!-- --rx/--ry: radio de la órbita · --dur: vuelta completa · --d: desfase -->
-        <svg class="el o1" style="--d:0s"><use href="#i-curita"/></svg>
-        <svg class="el o1 el--naranja" style="--d:-4.7s"><use href="#i-rayo"/></svg>
-        <svg class="el o1" style="--d:-9.3s"><use href="#i-flor"/></svg>
-        <svg class="el o2 el--lila" style="--d:-1s"><use href="#i-brillo"/></svg>
-        <svg class="el o2" style="--d:-4.3s"><use href="#i-sobre"/></svg>
-        <svg class="el o2 el--azul" style="--d:-7.6s"><use href="#i-nota"/></svg>
-        <svg class="el o3" style="--d:-.5s"><use href="#i-flor"/></svg>
-        <svg class="el o3 el--naranja" style="--d:-2.8s"><use href="#i-brillo"/></svg>
-        <svg class="el o3" style="--d:-5.1s"><use href="#i-curita"/></svg>
+        <img class="el o1" style="--d:0s" src="img/elementos/curita.webp" alt="">
+        <img class="el o1" style="--d:-4.7s" src="img/elementos/rayo.webp" alt="">
+        <img class="el o1" style="--d:-9.3s" src="img/elementos/tetera.webp" alt="">
+        <img class="el o2" style="--d:-1s" src="img/elementos/nota.webp" alt="">
+        <img class="el o2" style="--d:-4.3s" src="img/elementos/flor.webp" alt="">
+        <img class="el o2" style="--d:-7.6s" src="img/elementos/megafono.webp" alt="">
+        <img class="el o3" style="--d:-.5s" src="img/elementos/gota.webp" alt="">
+        <img class="el o3" style="--d:-2.8s" src="img/elementos/clave.webp" alt="">
+        <img class="el o3" style="--d:-5.1s" src="img/elementos/rayo2.webp" alt="">
       </div>
     </div>
 
     <div class="experiencias">
       <article class="carta">
-        <svg class="carta__icono" aria-hidden="true"><use href="#i-sobre"/></svg>
+        <img class="carta__icono" src="img/elementos/partitura.webp" alt="" width="70" height="68" loading="lazy">
         <h3>La Tornada colectiva</h3>
         <p>Al entrar recibes un sobrecito con curitas, rayitos y figuras de papel. Escribe en ellos algo que creías perdido o que quieres que vuelva, y pégalo en la pancarta con forma de tornado. Al final de la noche, la pancarta llena queda a la vista de todos.</p>
       </article>
       <article class="carta">
-        <svg class="carta__icono carta__icono--flor" aria-hidden="true"><use href="#i-flor"/></svg>
+        <img class="carta__icono" src="img/elementos/flor.webp" alt="" width="62" height="68" loading="lazy">
         <h3>Dibujo en vivo</h3>
         <p>Mientras suena el concierto, una pintora <!-- [NOMBRE DE LA PINTORA] --> lo va interpretando sobre un lienzo de cara al público. Al cierre se muestra la obra terminada, junto a la pancarta.</p>
       </article>
@@ -251,7 +249,18 @@
       </div>
     </article>
 
-    <h3 class="subtitulo">Invitados</h3>
+    <h3 class="subtitulo">Invitados especiales</h3>
+    <div class="sorpresa">
+      <img class="sorpresa__el" src="img/elementos/megafono.webp" alt="" width="77" height="90" loading="lazy">
+      <div>
+        <p class="sorpresa__titulo">Habrá invitados especiales</p>
+        <p>Muy pronto, más noticias. Síguenos en <a href="https://www.instagram.com/katia.uriol/" target="_blank" rel="noopener">@katia.uriol</a> para enterarte primero.</p>
+      </div>
+    </div>
+
+    <!-- INVITADOS (ocultos hasta el anuncio). Para revelarlos, borra el comentario
+         y elimina el bloque "sorpresa" de arriba.
+    
     <ul class="artistas">
       <li class="artista">
         <span class="artista__inicial" aria-hidden="true">K</span>
@@ -284,6 +293,8 @@
         </div>
       </li>
     </ul>
+
+    -->
 
     <h3 class="subtitulo">Abre la noche</h3>
     <ul class="artistas">
