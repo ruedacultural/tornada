@@ -94,8 +94,10 @@ window.TORNADA = {
     campos: {
       vendidoPor: "Vendido por",
       origen: "Origen",
-      tipoEntrada: "Tipo de entrada"
+      tipoEntrada: "Tipo de entrada",
+      evento: "Evento"            // vínculo oculto al registro "Tornada" (aforo y tablero)
     },
+    valorEvento: "Tornada",
     ocultarCampos: true,              // oculta "Vendido por" y "Origen" al comprador
     precargarTipoEntrada: false,      // el formulario actual no tiene campo "Tipo de entrada"
     alturaIframe: 1350

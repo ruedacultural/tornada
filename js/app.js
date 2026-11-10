@@ -294,6 +294,7 @@
     add(A.campos.vendidoPor, ref.vendedor, A.ocultarCampos);
     add(A.campos.origen, ref.origen, A.ocultarCampos);
     if (A.precargarTipoEntrada && ev.tramo) add(A.campos.tipoEntrada, ev.tramo.opcionAirtable, false);
+    if (A.campos.evento && A.valorEvento) add(A.campos.evento, A.valorEvento, true);
 
     var url = A.embedUrl + (A.embedUrl.indexOf('?') > -1 ? '&' : '?') + q.join('&');
     iframe.style.height = (A.alturaIframe || 1350) + 'px';
