@@ -57,6 +57,18 @@ window.TORNADA = {
     }
   ],
 
+  /* Promociones (se muestran como tarjeta aparte; vigentes entre inicio y fin) */
+  promos: [
+    {
+      nombre: "Promo 2 entradas",
+      cantidad: 2,
+      precio: 60,
+      inicio: "2026-11-13T00:00:00-05:00",
+      fin:    "2026-12-01T23:59:59-05:00",
+      condicion: "S/ 60 por 2 entradas en una sola compra (S/ 30 c/u)."
+    }
+  ],
+
   /* Entrada de estudiante: vale durante toda la venta online */
   estudiante: {
     nombre: "Estudiantes",

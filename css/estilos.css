@@ -206,7 +206,7 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 /* ---------- 2. Precios ---------- */
 .precios{ display: grid; grid-template-columns: 1fr; gap: 14px; }
 @media (min-width: 620px){ .precios{ grid-template-columns: 1fr 1fr; } }
-@media (min-width: 900px){ .precios{ grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px){ .precios{ grid-template-columns: repeat(3, 1fr); } }
 
 .precio{
   position: relative; background: #fff; border: 1.5px solid var(--linea);
@@ -237,6 +237,10 @@ h4{ font-family: var(--f-titulo); font-weight: 700; font-size: 1.15rem; }
 .precio.estudiante{ background: #EEE8F7; border-color: var(--lila); }
 .precio.estudiante.cerrado{ opacity: .6; }
 .precio.proximo .precio__sello{ background: var(--azul); color: var(--tinta); }
+.precio.promo.vigente{ background: #B51B35; border-color: #B51B35; }
+.precio.promo.vigente .precio__sello{ background: #F6D2B8; color: var(--tinta); }
+.precio.promo.vigente .precio__fechas, .precio.promo.vigente .precio__condicion{ color: #F6D2B8; }
+.precio.promo .precio__monto small{ vertical-align: .55em; }
 .nota-precios{ margin-top: 18px; font-size: .92rem; color: var(--tinta-suave); }
 
 /* ---------- 3. Cómo comprar ---------- */

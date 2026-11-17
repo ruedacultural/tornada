@@ -199,6 +199,7 @@
       var sello = clase === 'pasado' ? 'Cerró' : clase === 'vigente' ? (t.online ? 'Vigente' : 'Hoy') : (t.online ? 'Desde el ' + diaMes(ini) : 'En puerta');
       var fechas = t.online ? rango(t.inicio, t.fin) : (t.nota || diaMes(ini));
       html += tarjeta(clase, t.nombre, t.precio, sello, fechas, '');
+      if (t.id === 'preventa') html += promosHtml(now);
     });
 
     var e = C.estudiante;
@@ -209,11 +210,23 @@
 
     cont.innerHTML = html;
   }
-  function tarjeta(clase, nombre, precio, sello, fechas, condicion) {
+  function promosHtml(now) {
+    var html = '';
+    (C.promos || []).forEach(function (pr) {
+      var ini = D(pr.inicio), fin = D(pr.fin);
+      var clase = 'promo ' + (now > fin ? 'pasado' : (now >= ini ? 'vigente' : 'proximo'));
+      var sello = now > fin ? 'Cerró' : (now >= ini ? '¡Promo!' : 'Desde el ' + diaMes(ini));
+      html += tarjeta(clase, pr.nombre, pr.precio, sello, rango(pr.inicio, pr.fin), pr.condicion,
+        '<small>' + pr.cantidad + ' x S/</small>' + pr.precio);
+    });
+
+    return html;
+  }
+  function tarjeta(clase, nombre, precio, sello, fechas, condicion, montoHtml) {
     return '<article class="precio ' + clase + '">' +
       '<span class="precio__sello">' + sello + '</span>' +
       '<h3 class="precio__nombre">' + nombre + '</h3>' +
-      '<p class="precio__monto"><small>S/</small>' + precio + '</p>' +
+      '<p class="precio__monto">' + (montoHtml || '<small>S/</small>' + precio) + '</p>' +
       '<p class="precio__fechas">' + fechas + '</p>' +
       (condicion ? '<p class="precio__condicion">' + condicion + '</p>' : '') +
       '</article>';
@@ -307,7 +320,8 @@
     if (!p) return;
     if (ev.estado === 'online') {
       p.textContent = ev.tramo.nombre + ' ' + soles(ev.tramo.precio);
-      s.textContent = 'Estudiantes ' + soles(C.estudiante.precio) + ' · Mié 2 dic';
+      var prom = (C.promos || []).filter(function (x) { var n = ahora(); return n >= D(x.inicio) && n <= D(x.fin); })[0];
+      s.textContent = (prom ? prom.cantidad + ' x ' + soles(prom.precio) : 'Estudiantes ' + soles(C.estudiante.precio)) + ' · Mié 2 dic';
     } else if (ev.estado === 'puerta') {
       p.textContent = 'Hoy en puerta ' + soles(ev.tramo.precio);
     } else if (ev.estado === 'agotado') {
